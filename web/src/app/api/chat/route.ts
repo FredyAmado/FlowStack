@@ -70,7 +70,7 @@ export async function POST(req: Request) {
         "X-Title": "automate.ai",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.0-flash-lite-preview-02-05",
+        model: "meta-llama/llama-3.1-8b-instruct",
         messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
         max_tokens: 500,
       }),
