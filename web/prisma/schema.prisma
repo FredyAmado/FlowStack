@@ -3,7 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
+}
+
+enum Role {
+  admin
+  user
 }
 
 model User {
@@ -11,7 +16,7 @@ model User {
   name      String
   email     String   @unique
   password  String
-  role      String   @default("user")
+  role      Role     @default(user)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -72,4 +77,15 @@ model ActivityLog {
   createdAt DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id])
+}
+
+model ContactSubmission {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String?
+  company   String?
+  message   String
+  source    String   @default("web")
+  createdAt DateTime @default(now())
 }

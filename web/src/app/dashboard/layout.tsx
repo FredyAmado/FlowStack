@@ -11,6 +11,7 @@ import {
   LogOut,
   Zap,
   ChevronRight,
+  Mail,
 } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { useEffect } from "react";
@@ -20,6 +21,7 @@ const navItems = [
   { href: "/dashboard/processes", label: "Procesos", icon: GitBranch },
   { href: "/dashboard/tasks", label: "Tareas", icon: CheckSquare },
   { href: "/dashboard/history", label: "Historial", icon: Clock },
+  { href: "/dashboard/contactos", label: "Contactos", icon: Mail },
 ];
 
 export default function DashboardLayout({
