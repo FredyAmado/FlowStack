@@ -1,6 +1,6 @@
-# AutoPro - Automatización de Procesos
+# automate.ai — Automatización de Procesos Administrativos
 
-Sistema web para automatización de procesos administrativos con flujos de aprobación multi-paso.
+Plataforma web para automatización de procesos administrativos con flujos de aprobación multi-paso, más consultoría de automatización empresarial.
 
 ---
 
@@ -10,47 +10,53 @@ Sistema web para automatización de procesos administrativos con flujos de aprob
 automate.ai/
 ├── .opencode/
 │   ├── agents/
-│   │   └── web-expert.md        # Agente web-expert para opencode
+│   │   ├── web-expert.md          # Agente desarrollador web
+│   │   └── ceo-coach.md           # Agente estrategia de negocio
 │   └── skills/
-│       └── web-expert/
-│           └── SKILL.md         # Skill de desarrollo web senior
-├── web/                          # Aplicación Next.js
+│       ├── web-expert/SKILL.md
+│       └── ceo-coach/SKILL.md
+├── web/                           # Aplicación Next.js 16
 │   ├── prisma/
-│   │   ├── schema.prisma        # Modelos de base de datos
-│   │   ├── seed.ts              # Datos de prueba
-│   │   ├── dev.db               # Base de datos SQLite
-│   │   └── migrations/          # Migraciones de Prisma
+│   │   ├── schema.prisma          # 6 modelos (PostgreSQL)
+│   │   ├── seed.ts                # Datos demo
+│   │   └── migrations/
 │   ├── src/
 │   │   ├── app/
-│   │   │   ├── layout.tsx       # Layout raíz con Providers
-│   │   │   ├── page.tsx         # Redirección según sesión
-│   │   │   ├── providers.tsx    # SessionProvider client component
-│   │   │   ├── globals.css      # Estilos globales + Tailwind
-│   │   │   ├── login/
-│   │   │   │   └── page.tsx     # Login con credenciales
+│   │   │   ├── layout.tsx         # Layout raíz
+│   │   │   ├── page.tsx           # Landing page corporativa
+│   │   │   ├── providers.tsx      # SessionProvider
+│   │   │   ├── globals.css        # Tailwind v4 + animaciones
+│   │   │   ├── login/page.tsx     # Login con credenciales
+│   │   │   ├── demo/page.tsx      # Walkthrough interactivo
 │   │   │   ├── dashboard/
-│   │   │   │   ├── layout.tsx   # Sidebar de navegación
-│   │   │   │   ├── page.tsx     # KPIs, gráficos (Recharts)
-│   │   │   │   ├── processes/   # CRUD de procesos
-│   │   │   │   ├── tasks/       # Bandeja de aprobaciones
-│   │   │   │   └── history/     # Historial de actividad
+│   │   │   │   ├── layout.tsx     # Sidebar negro/naranja
+│   │   │   │   ├── page.tsx       # KPIs + Recharts
+│   │   │   │   ├── processes/     # CRUD procesos
+│   │   │   │   ├── tasks/         # Bandeja aprobaciones
+│   │   │   │   ├── history/       # Línea de tiempo
+│   │   │   │   └── contactos/     # Leads recibidos
 │   │   │   └── api/
-│   │   │       ├── auth/
-│   │   │       │   └── [...nextauth]/route.ts
+│   │   │       ├── auth/[...nextauth]/route.ts
 │   │   │       ├── processes/route.ts
 │   │   │       ├── requests/route.ts
-│   │   │       └── approvals/route.ts
+│   │   │       ├── approvals/route.ts
+│   │   │       ├── contact/route.ts     # Guarda leads + Telegram
+│   │   │       └── chat/route.ts        # IA chatbot (OpenRouter)
 │   │   └── lib/
-│   │       ├── prisma.ts
-│   │       ├── auth.ts
+│   │       ├── prisma.ts          # Neon/PostgreSQL adapter
+│   │       ├── auth.ts            # NextAuth config
 │   │       └── cn.ts
-│   ├── prisma.config.ts
-│   ├── next.config.ts
-│   ├── tailwind.config.ts
-│   ├── package.json
-│   └── tsconfig.json
-├── .vscode/
-└── PROJECT.md                    # Este archivo
+│   ├── components/
+│   │   ├── AutomationIllustration.tsx   # SVG personalizado
+│   │   └── ChatBot.tsx            # Chat flotante con IA
+│   ├── public/images/
+│   │   ├── hero-bg.jpg
+│   │   ├── team.jpg
+│   │   └── (capturas diseño)
+│   ├── vercel.json
+│   └── .env
+├── VIDEO_SCRIPT.md
+└── PROJECT.md
 ```
 
 ---
@@ -59,48 +65,96 @@ automate.ai/
 
 | Capa | Tecnología |
 |---|---|
-| Frontend | Next.js 16 (App Router) |
+| Frontend | Next.js 16 (App Router) + Turbopack |
 | UI | Tailwind CSS v4 + Lucide React |
 | Backend | Next.js API Routes |
-| Base de Datos | SQLite + Prisma ORM v7 |
-| Autenticación | NextAuth.js v4 (Credentials) |
+| Base de Datos | PostgreSQL (Neon) + Prisma ORM v7 |
+| Autenticación | NextAuth.js v4 (Credentials + JWT) |
 | Gráficos | Recharts |
-| Íconos | Lucide React |
+| Chatbot IA | OpenRouter + Llama 3.1 8B |
+| Notificaciones | Telegram Bot API |
+| Despliegue | Vercel |
 
 ---
 
 ## Funcionalidades
 
-### 1. Dashboard
+### Landing Page Corporativa
+- Navbar fijo con navegación suave
+- Hero con imagen de fondo + formulario de contacto
+- Banner de estadísticas (15+ años, 500+ empresas, etc.)
+- Misión, Visión, Valores + FODA (SWOT 2×2)
+- 6 tarjetas de servicios con hover animado
+- Sección de precios (Starter/Professional/Enterprise)
+- Testimonios con avatares y ratings
+- Chatbot flotante con IA (esquina inferior derecha)
+- Footer con enlaces
+
+### Dashboard
 - KPIs: procesos activos, solicitudes totales, tareas pendientes, completadas hoy
 - Gráfico de donut: solicitudes por estado
 - Gráfico de barras: solicitudes por mes
 - Actividad reciente
 
-### 2. Gestión de Procesos
-- Crear procesos con nombre, descripción y número de pasos de aprobación
-- Listar y eliminar procesos
-- Cada proceso puede tener N pasos de aprobación
+### Gestión de Procesos
+- CRUD completo (crear, listar, eliminar)
+- Nombre, descripción, pasos de aprobación
 
-### 3. Bandeja de Tareas
-- Ver tareas pendientes de aprobación asignadas al usuario
-- Aprobar o rechazar con comentario
+### Bandeja de Tareas
+- Aprobación/rechazo multi-paso con comentarios
 - Filtros: todas, pendientes, hechas
-- Flujo multi-paso: al aprobar, pasa al siguiente revisor automáticamente
+- Flujo automático al siguiente revisor
 
-### 4. Historial
-- Línea de tiempo con toda la actividad del sistema
-- Iconos y colores según tipo de acción
+### Historial
+- Línea de tiempo con toda la actividad
+- Iconos y colores por tipo de acción
+
+### Contactos (CRM)
+- Lista de leads del formulario y chatbot
+- Vista detalle con datos completos
+- Botón para responder por email
+
+### Chatbot con IA (Ventas)
+- Agente de ventas automatizado con Llama 3.1
+- Conoce todos los servicios y planes
+- Califica leads (nombre, empresa, cargo, necesidad)
+- Ofrece agendar demo/llamada
+- Guarda conversaciones en base de datos
+- Notifica por Telegram
 
 ---
 
 ## Modelos de Datos
 
-- **User**: autenticación y roles (admin/user)
-- **Process**: flujo de automatización con N pasos
-- **Request**: solicitud vinculada a un proceso
-- **Approval**: aprobación por paso y usuario
-- **ActivityLog**: auditoría de acciones
+- **User** — autenticación y roles (admin/user) con enum PostgreSQL
+- **Process** — flujo de automatización con N pasos
+- **Request** — solicitud vinculada a un proceso
+- **Approval** — aprobación por paso y usuario
+- **ActivityLog** — auditoría de acciones
+- **ContactSubmission** — leads del formulario y chatbot
+
+---
+
+## Servicios de Automatización (Consultoría)
+
+- **Make** (Integromat) — automatización visual
+- **n8n** — automatización self-hosted
+- **Google Workspace** — Apps Script, Sheets, Forms, Drive
+- **Microsoft Power Automate** — ecosistema Microsoft
+- **Zapier** — low-code con cientos de apps
+- **WhatsApp Business API** — chatbots y notificaciones
+- **Telegram Bots** — asistentes automatizados
+- **Desarrollo a medida** — programación personalizada
+
+---
+
+## Planes de la Plataforma
+
+| Plan | Precio | Límites |
+|---|---|---|
+| Starter | $0/mes | 3 procesos, 10 solicitudes/mes, 1 usuario |
+| Professional | $29/mes | Procesos ilimitados, 500 solicitudes, 10 usuarios |
+| Enterprise | Personalizado | Ilimitado, API, SLA 99.9%, soporte 24/7 |
 
 ---
 
@@ -108,45 +162,40 @@ automate.ai/
 
 | Rol | Email | Contraseña |
 |---|---|---|
-| Admin | admin@autopro.com | admin123 |
-| Usuario | user@autopro.com | user123 |
+| Admin | admin@automate.ai | admin123 |
+| Usuario | user@automate.ai | user123 |
 
 ---
 
 ## Comandos Útiles
 
 ```bash
-# Desarrollo
 cd web
-npm run dev                   # Iniciar servidor en localhost:3000
 
-# Base de datos
-npx prisma studio             # Explorar BD en navegador
-npx prisma migrate dev        # Crear migración
-npx prisma db seed            # Poblar con datos demo
+npm run dev              # Desarrollo localhost:3000
+npm run build            # Build producción
+npm start                # Servidor producción
 
-# Build
-npm run build                 # Compilar para producción
-npm start                     # Iniciar servidor de producción
+npx prisma migrate dev   # Crear migración
+npx prisma db seed       # Poblar datos demo
+npx prisma studio        # Explorar BD
 ```
 
 ---
 
-## Landing Page
+## Variables de Entorno (Vercel)
 
-Página de inicio corporativa para **automate.ai** con diseño profesional estilo Chetu, usando la paleta de colores Bodytech (naranja, negro, blanco).
+| Variable | Descripción |
+|---|---|
+| `DATABASE_URL` | PostgreSQL connection string (Neon) |
+| `TELEGRAM_BOT_TOKEN` | Token del bot de Telegram |
+| `TELEGRAM_CHAT_ID` | Chat ID para notificaciones |
+| `OPENROUTER_API_KEY` | API key para IA del chatbot |
 
-### Secciones
-1. **Navbar** — menú fijo con enlaces de navegación y botón de inicio de sesión
-2. **Hero** — titular principal, texto descriptivo, formulario de contacto (lado derecho)
-3. **Stats Banner** — contadores (15+ años, 500+ empresas, 50K+ procesos, 99.9% uptime)
-4. **Nosotros** — Misión, Visión, Valores + Objetivos Estratégicos
-5. **Servicios** — 6 tarjetas de servicios con íconos
-6. **Casos de éxito** — testimonios de clientes con rating
-7. **CTA Final** — banner con llamado a la acción (solicitar demo / llamar)
-8. **Footer** — enlaces legales y copyright
+---
 
-### Colores Corporativos
+## Colores Corporativos
+
 | Color | Hex | Uso |
 |---|---|---|
 | Naranja | `#ff6b00` | Botones, acentos, iconos |
@@ -155,30 +204,23 @@ Página de inicio corporativa para **automate.ai** con diseño profesional estil
 | Negro | `#0a0a0a` | Fondos, navbar, sidebar |
 | Blanco | `#ffffff` | Fondos de contenido, tarjetas |
 
-### Formulario de Contacto
-- Campos: Nombre, Correo, Teléfono, Empresa, Mensaje
-- Validación y feedback visual al enviar
-- Integrable con backend de email/CRM
+---
 
 ## Historial de Cambios
 
 | Fecha | Cambio |
 |---|---|
-| 2026-05-30 | Creación del proyecto Next.js + Tailwind |
-| 2026-05-30 | Configuración de Prisma con SQLite |
-| 2026-05-30 | Autenticación con NextAuth (credenciales) |
-| 2026-05-30 | Dashboard con KPIs y gráficos Recharts |
-| 2026-05-30 | CRUD de procesos de automatización |
-| 2026-05-30 | Bandeja de aprobaciones multi-paso |
-| 2026-05-30 | Historial de actividad / auditoría |
-| 2026-05-30 | Seed de datos demo |
-| 2026-05-30 | Skill y agente web-expert para opencode |
-| 2026-05-31 | Landing page corporativa (misión, visión, valores, objetivos) |
-| 2026-05-31 | Paleta de colores Bodytech (naranja, negro, blanco) |
-| 2026-05-31 | Formulario de contacto en hero |
-| 2026-05-31 | Dashboard adaptado a colores corporativos |
-| 2026-05-31 | Guion profesional para video demo (VIDEO_SCRIPT.md) |
-| 2026-05-31 | Página interactiva /demo con auto-reproducción |
-| 2026-05-31 | Ilustración SVG personalizada (AutomationIllustration) |
-| 2026-05-31 | Fotos reales Unsplash (hero-bg.jpg, team.jpg) |
-| 2026-05-31 | Avatares generados para testimonios (ui-avatars.com) |
+| 2026-05-30 | Creación del proyecto Next.js + Tailwind + Prisma SQLite |
+| 2026-05-30 | Autenticación NextAuth + Dashboard KPIs + CRUD procesos |
+| 2026-05-30 | Bandeja de aprobaciones multi-paso + Historial |
+| 2026-05-30 | Agentes opencode (web-expert, ceo-coach) |
+| 2026-05-31 | Landing page corporativa completa |
+| 2026-05-31 | Página /demo interactiva + AutomationIllustration + Unsplash |
+| 2026-06-01 | Tarjetas de servicios rediseñadas + Sección de precios |
+| 2026-06-01 | Repositorio GitHub + despliegue Vercel |
+| 2026-06-01 | Integración Telegram para notificaciones de leads |
+| 2026-06-01 | Chatbot flotante (widget UI) |
+| 2026-06-02 | Migración SQLite → PostgreSQL (Neon) |
+| 2026-06-02 | Modelo ContactSubmission + leads guardados en BD |
+| 2026-06-02 | Dashboard de contactos (CRM interno) |
+| 2026-06-02 | Chatbot con IA (OpenRouter + Llama 3.1) como agente de ventas |
