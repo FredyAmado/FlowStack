@@ -7,6 +7,7 @@ import {
   ChevronRight, Star, Quote, Send,
 } from "lucide-react";
 import AutomationIllustration from "@/components/AutomationIllustration";
+import ChatBot from "@/components/ChatBot";
 
 const navLinks = [
   { label: "Inicio", href: "#hero" },
@@ -709,6 +710,7 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
+      <ChatBot />
     </div>
   );
 }
