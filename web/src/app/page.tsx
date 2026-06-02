@@ -87,16 +87,29 @@ export default function LandingPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", company: "", message: "" });
   const [formSent, setFormSent] = useState(false);
+  const [formError, setFormError] = useState(false);
 
   function handleFormChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
 
-  function handleFormSubmit(e: React.FormEvent) {
+  async function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setFormSent(true);
-    setFormData({ name: "", email: "", phone: "", company: "", message: "" });
-    setTimeout(() => setFormSent(false), 5000);
+    setFormError(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error();
+      setFormSent(true);
+      setFormData({ name: "", email: "", phone: "", company: "", message: "" });
+      setTimeout(() => setFormSent(false), 5000);
+    } catch {
+      setFormError(true);
+      setTimeout(() => setFormError(false), 5000);
+    }
   }
 
   return (
@@ -230,6 +243,11 @@ export default function LandingPage() {
                 {formSent && (
                   <div className="rounded-lg bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-700 text-center">
                     ¡Mensaje enviado! Te contactaremos pronto.
+                  </div>
+                )}
+                {formError && (
+                  <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700 text-center">
+                    Error al enviar. Intenta de nuevo o escríbenos a contacto@automate.ai.
                   </div>
                 )}
                 <button type="submit" className="w-full rounded-lg bg-orange py-3 text-sm font-semibold text-white hover:bg-orange-light transition-colors shadow-lg shadow-orange/25 flex items-center justify-center gap-2">
