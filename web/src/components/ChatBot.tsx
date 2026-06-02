@@ -24,24 +24,33 @@ export default function ChatBot() {
     setInput("");
     setMessages((prev) => [...prev, { from: "user", text }]);
     setSending(true);
+
     try {
-      await fetch("/api/contact", {
+      const chatRes = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: "Chatbot",
-          email: "chat@automate.ai",
-          message: text,
+          messages: messages.concat({ from: "user", text }).map((m) => ({
+            role: m.from === "user" ? "user" : "assistant",
+            content: m.text,
+          })),
         }),
       });
-      setMessages((prev) => [
-        ...prev,
-        { from: "bot", text: "Gracias por tu mensaje. Te responderemos a la brevedad." },
-      ]);
+
+      if (!chatRes.ok) throw new Error();
+
+      const { reply } = await chatRes.json();
+      setMessages((prev) => [...prev, { from: "bot", text: reply }]);
+
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: "Chatbot", email: "chat@automate.ai", message: text, source: "chatbot" }),
+      }).catch(() => {});
     } catch {
       setMessages((prev) => [
         ...prev,
-        { from: "bot", text: "Error al enviar. Intenta de nuevo." },
+        { from: "bot", text: "Disculpa, tuve un problema. ¿Podrías repetirlo?" },
       ]);
     }
     setSending(false);
@@ -77,6 +86,17 @@ export default function ChatBot() {
                 </div>
               </div>
             ))}
+            {sending && (
+              <div className="flex justify-start">
+                <div className="rounded-2xl rounded-bl-md bg-zinc-100 px-4 py-2.5 text-sm text-zinc-500">
+                  <span className="inline-flex gap-1">
+                    <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                    <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                    <span className="w-1.5 h-1.5 bg-zinc-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                  </span>
+                </div>
+              </div>
+            )}
             <div ref={bottomRef} />
           </div>
 
