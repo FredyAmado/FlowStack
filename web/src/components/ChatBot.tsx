@@ -62,9 +62,7 @@ export default function ChatBot() {
         <div className="w-80 sm:w-96 rounded-2xl border border-zinc-200 bg-white shadow-2xl shadow-black/10 overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-300">
           <div className="flex items-center justify-between bg-orange px-4 py-3">
             <div className="flex items-center gap-2">
-              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
-                <MessageCircle className="h-4 w-4 text-white" />
-              </div>
+              <img src="/favicon.svg" alt="FlowStack" className="h-7 w-7 rounded-full" />
               <span className="text-sm font-semibold text-white">FlowStack</span>
             </div>
             <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white transition-colors">

@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   description:
     "Transforma tus procesos administrativos con automatización inteligente. Flujos de aprobación multi-paso, dashboard en tiempo real y más. Stack Tecnológico de Automatización.",
   metadataBase: new URL("https://stacktecnologicodeautomatizacion.com"),
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({

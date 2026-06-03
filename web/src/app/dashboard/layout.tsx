@@ -53,9 +53,7 @@ export default function DashboardLayout({
     <div className="flex min-h-screen bg-zinc-50">
       <aside className="fixed left-0 top-0 z-40 flex h-screen w-64 flex-col bg-black text-white">
         <div className="flex items-center gap-3 px-6 py-5 border-b border-white/10">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange shadow-lg shadow-orange/30">
-            <Zap className="h-5 w-5 text-white" />
-          </div>
+          <img src="/favicon.svg" alt="FlowStack" className="h-9 w-9" />
           <div>
             <h1 className="text-lg font-bold tracking-tight">FlowStack</h1>
             <p className="text-xs text-zinc-500">Stack Tecnológico de Automatización</p>

@@ -126,9 +126,7 @@ export default function DemoPage() {
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-md bg-orange shadow-lg shadow-orange/30">
-              <Zap className="h-4 w-4 text-white" />
-            </div>
+            <img src="/favicon.svg" alt="FlowStack" className="h-7 w-7" />
             <span className="text-sm font-bold text-white">FlowStack</span>
             <span className="text-xs text-zinc-500 ml-2">Demo interactiva</span>
           </div>
