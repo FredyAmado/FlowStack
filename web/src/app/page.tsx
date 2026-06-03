@@ -120,8 +120,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-18 items-center justify-between">
             <a href="#hero" className="flex items-center gap-2.5">
-              <img src="/favicon.svg" alt="FlowStack" className="h-9 w-9" />
-              <span className="text-lg font-bold text-white">FlowStack</span>
+              <img src="/images/flowstack-logo.svg" alt="FlowStack" className="h-9" />
             </a>
 
             <div className="hidden lg:flex items-center gap-8">
@@ -688,8 +687,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-2.5">
-              <img src="/favicon.svg" alt="FlowStack" className="h-8 w-8" />
-              <span className="text-base font-bold text-white">FlowStack</span>
+              <img src="/images/flowstack-logo.svg" alt="FlowStack" className="h-8" />
             </div>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-zinc-500">
               <a href="#hero" className="hover:text-white transition-colors">Inicio</a>
