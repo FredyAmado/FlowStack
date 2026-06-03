@@ -32,7 +32,7 @@ export async function POST(req: Request) {
 
     if (token && chatId) {
       const text = [
-        "*Nuevo contacto desde automate.ai*",
+        "*Nuevo contacto desde FlowStack*",
         "",
         `*Nombre:* ${name}`,
         `*Email:* ${email}`,

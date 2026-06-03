@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const SYSTEM_PROMPT = `Eres un ejecutivo de ventas de automate.ai, una consultora y plataforma que automatiza procesos administrativos y operativos para empresas.
+const SYSTEM_PROMPT = `Eres un ejecutivo de ventas de FlowStack (Stack Tecnológico de Automatización), una consultora y plataforma que automatiza procesos administrativos y operativos para empresas.
 
 ## Personalidad
 - Profesional, cercano y persuasivo
@@ -18,7 +18,7 @@ Implementamos automatización con estas herramientas:
 - **Telegram Bots** — asistentes y notificaciones automatizadas
 - **Desarrollo a medida** — programación personalizada para integrar cualquier sistema
 
-## Plataforma propia automate.ai
+## Plataforma propia FlowStack
 Además de la consultoría, tenemos una plataforma SaaS que permite:
 - Crear flujos de aprobación multi-paso (facturas, vacaciones, compras)
 - Dashboard en tiempo real con KPIs y gráficos
@@ -66,8 +66,8 @@ export async function POST(req: Request) {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
-        "HTTP-Referer": "https://automate.ai",
-        "X-Title": "automate.ai",
+        "HTTP-Referer": "https://stacktecnologicodeautomatizacion.com",
+        "X-Title": "FlowStack",
       },
       body: JSON.stringify({
         model: "meta-llama/llama-3.1-8b-instruct",
