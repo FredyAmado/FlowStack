@@ -62,7 +62,7 @@ const testimonials = [
     name: "Carlos Mendoza",
     role: "Director de Operaciones",
     company: "Grupo Logístico MX",
-    text: "Implementar automate.ai transformó nuestra gestión administrativa. Redujimos tiempos de aprobación de 3 días a 2 horas. El ROI fue inmediato.",
+    text: "Implementar FlowStack transformó nuestra gestión administrativa. Redujimos tiempos de aprobación de 3 días a 2 horas. El ROI fue inmediato.",
     rating: 5,
     avatar: "https://ui-avatars.com/api/?name=Carlos+Mendoza&background=ff6b00&color=fff&size=80",
   },
@@ -78,7 +78,7 @@ const testimonials = [
     name: "Pedro Castillo",
     role: "Gerente de TI",
     company: "Salud Integral SAS",
-    text: "Integrarlo con nuestros sistemas existentes fue sorprendentemente fácil. El equipo de automate.ai nos acompañó en cada paso del proceso.",
+    text: "Integrarlo con nuestros sistemas existentes fue sorprendentemente fácil. El equipo de FlowStack nos acompañó en cada paso del proceso.",
     rating: 5,
     avatar: "https://ui-avatars.com/api/?name=Pedro+Castillo&background=ff6b00&color=fff&size=80",
   },
@@ -123,7 +123,7 @@ export default function LandingPage() {
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange shadow-lg shadow-orange/30">
                 <Zap className="h-5 w-5 text-white" />
               </div>
-              <span className="text-lg font-bold text-white">automate.ai</span>
+              <span className="text-lg font-bold text-white">FlowStack</span>
             </a>
 
             <div className="hidden lg:flex items-center gap-8">
@@ -248,7 +248,7 @@ export default function LandingPage() {
                 )}
                 {formError && (
                   <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700 text-center">
-                    Error al enviar. Intenta de nuevo o escríbenos a contacto@automate.ai.
+                    Error al enviar. Intenta de nuevo o escríbenos a contacto@stacktecnologicodeautomatizacion.com.
                   </div>
                 )}
                 <button type="submit" className="w-full rounded-lg bg-orange py-3 text-sm font-semibold text-white hover:bg-orange-light transition-colors shadow-lg shadow-orange/25 flex items-center justify-center gap-2">
@@ -286,7 +286,7 @@ export default function LandingPage() {
               Transformando empresas a través de la automatización
             </p>
             <p className="mt-4 text-lg text-zinc-500">
-              En automate.ai creemos que la tecnología debe liberar el potencial humano, no reemplazarlo.
+              En FlowStack creemos que la tecnología debe liberar el potencial humano, no reemplazarlo.
             </p>
           </div>
 
@@ -300,12 +300,12 @@ export default function LandingPage() {
                   De la fricción administrativa a la fluidez digital
                 </h3>
                 <p className="mt-4 text-zinc-400 leading-relaxed">
-                  automate.ai nació de una verdad incómoda: las empresas pasan el 40% de su tiempo 
+                  FlowStack nació de una verdad incómoda: las empresas pasan el 40% de su tiempo 
                   en tareas administrativas que no agregan valor. Procesos de aprobación que tardan 
                   días, documentos que se pierden, trazabilidad que no existe.
                 </p>
                 <p className="mt-3 text-zinc-400 leading-relaxed">
-                  Fundamos automate.ai con una convicción simple: <span className="text-white font-medium">la tecnología no debería crear más burocracia, debería eliminarla.</span> 
+                  Fundamos FlowStack con una convicción simple: <span className="text-white font-medium">la tecnología no debería crear más burocracia, debería eliminarla.</span> 
                   Hoy ayudamos a cientos de empresas en Latinoamérica a operar con la agilidad de 
                   una startup y la solidez de una corporación.
                 </p>
@@ -397,12 +397,12 @@ export default function LandingPage() {
           <div className="mt-16 relative overflow-hidden rounded-2xl mb-16">
             <img
               src="/images/team.jpg"
-              alt="Equipo automate.ai"
+              alt="Equipo FlowStack"
               className="w-full h-64 sm:h-80 object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
               <div className="p-8">
-                <p className="text-white text-lg font-semibold">Equipo automate.ai</p>
+                <p className="text-white text-lg font-semibold">Equipo FlowStack</p>
                 <p className="text-zinc-300 text-sm">Transformando empresas juntos</p>
               </div>
             </div>
@@ -693,7 +693,7 @@ export default function LandingPage() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange shadow-lg shadow-orange/30">
                 <Zap className="h-4 w-4 text-white" />
               </div>
-              <span className="text-base font-bold text-white">automate.ai</span>
+              <span className="text-base font-bold text-white">FlowStack</span>
             </div>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-zinc-500">
               <a href="#hero" className="hover:text-white transition-colors">Inicio</a>
@@ -705,7 +705,7 @@ export default function LandingPage() {
               <a href="#" className="hover:text-white transition-colors">Política de privacidad</a>
             </div>
             <p className="text-xs text-zinc-600">
-              &copy; {new Date().getFullYear()} automate.ai. Todos los derechos reservados.
+              &copy; {new Date().getFullYear()} FlowStack. Todos los derechos reservados.
             </p>
           </div>
         </div>

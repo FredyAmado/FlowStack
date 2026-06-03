@@ -129,7 +129,7 @@ export default function DemoPage() {
             <div className="flex h-7 w-7 items-center justify-center rounded-md bg-orange shadow-lg shadow-orange/30">
               <Zap className="h-4 w-4 text-white" />
             </div>
-            <span className="text-sm font-bold text-white">automate.ai</span>
+            <span className="text-sm font-bold text-white">FlowStack</span>
             <span className="text-xs text-zinc-500 ml-2">Demo interactiva</span>
           </div>
           <div className="flex items-center gap-3">

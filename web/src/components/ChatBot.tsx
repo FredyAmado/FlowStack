@@ -8,7 +8,7 @@ type Message = { from: "bot" | "user"; text: string };
 export default function ChatBot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { from: "bot", text: "¡Hola! Soy el asistente de automate.ai. ¿En qué puedo ayudarte?" },
+    { from: "bot", text: "¡Hola! Soy el asistente de FlowStack. ¿En qué puedo ayudarte?" },
   ]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
@@ -45,7 +45,7 @@ export default function ChatBot() {
       fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: "Chatbot", email: "chat@automate.ai", message: text, source: "chatbot" }),
+        body: JSON.stringify({ name: "Chatbot", email: "chat@stacktecnologicodeautomatizacion.com", message: text, source: "chatbot" }),
       }).catch(() => {});
     } catch {
       setMessages((prev) => [
@@ -65,7 +65,7 @@ export default function ChatBot() {
               <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white/20">
                 <MessageCircle className="h-4 w-4 text-white" />
               </div>
-              <span className="text-sm font-semibold text-white">automate.ai</span>
+              <span className="text-sm font-semibold text-white">FlowStack</span>
             </div>
             <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white transition-colors">
               <X className="h-5 w-5" />

@@ -57,8 +57,8 @@ export default function DashboardLayout({
             <Zap className="h-5 w-5 text-white" />
           </div>
           <div>
-            <h1 className="text-lg font-bold tracking-tight">automate.ai</h1>
-            <p className="text-xs text-zinc-500">Automatización</p>
+            <h1 className="text-lg font-bold tracking-tight">FlowStack</h1>
+            <p className="text-xs text-zinc-500">Stack Tecnológico de Automatización</p>
           </div>
         </div>
 

@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Automate.ai - Automatización Inteligente de Procesos",
+  title: "FlowStack - Automatización Inteligente de Procesos",
   description:
-    "Transforma tus procesos administrativos con automatización inteligente. Flujos de aprobación multi-paso, dashboard en tiempo real y más.",
+    "Transforma tus procesos administrativos con automatización inteligente. Flujos de aprobación multi-paso, dashboard en tiempo real y más. Stack Tecnológico de Automatización.",
 };
 
 export default function RootLayout({

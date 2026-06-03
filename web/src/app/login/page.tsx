@@ -40,7 +40,7 @@ export default function LoginPage() {
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-orange shadow-lg shadow-orange/30">
             <Zap className="h-7 w-7 text-white" />
           </div>
-          <h1 className="mt-4 text-3xl font-bold text-white">automate.ai</h1>
+          <h1 className="mt-4 text-3xl font-bold text-white">FlowStack</h1>
           <p className="mt-2 text-sm text-orange/60">
             Automatización de Procesos Administrativos
           </p>
