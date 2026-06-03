@@ -37,9 +37,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-zinc-900 via-black to-zinc-900">
       <div className="w-full max-w-md space-y-8 rounded-2xl bg-white/10 p-8 backdrop-blur-lg border border-white/20 shadow-2xl">
         <div className="text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-orange shadow-lg shadow-orange/30">
-            <Zap className="h-7 w-7 text-white" />
-          </div>
+          <img src="/favicon.svg" alt="FlowStack" className="mx-auto h-14 w-14" />
           <h1 className="mt-4 text-3xl font-bold text-white">FlowStack</h1>
           <p className="mt-2 text-sm text-orange/60">
             Automatización de Procesos Administrativos
