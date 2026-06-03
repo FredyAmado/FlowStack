@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   Menu, X, Zap, ArrowRight, CheckCircle, Target, Eye, Heart,
   BarChart3, GitBranch, Shield, Users, TrendingUp, Globe, Award,
-  ChevronRight, Star, Quote, Send,
+  ChevronRight, Star, Quote, Send, Brain,
 } from "lucide-react";
 import AutomationIllustration from "@/components/AutomationIllustration";
 import ChatBot from "@/components/ChatBot";
@@ -13,6 +13,7 @@ const navLinks = [
   { label: "Inicio", href: "#hero" },
   { label: "Nosotros", href: "#about" },
   { label: "Servicios", href: "#services" },
+  { label: "Mercado", href: "#market" },
   { label: "Casos de Éxito", href: "#testimonials" },
   { label: "Contacto", href: "#contact" },
 ];
@@ -21,12 +22,12 @@ const services = [
   {
     icon: GitBranch,
     title: "Automatización de Procesos",
-    desc: "Flujos de aprobación multi-paso, gestión documental y orquestación de tareas administrativas.",
+    desc: "Power Automate, RPA y flujos inteligentes para aprobaciones multi-paso, gestión documental y orquestación de tareas administrativas.",
   },
   {
     icon: BarChart3,
     title: "Dashboard Inteligente",
-    desc: "Visualización de KPIs en tiempo real, reportes automáticos y analytics predictivo.",
+    desc: "Power BI, KPIs en tiempo real, reportes automáticos y analytics impulsado por IA para decisiones más rápidas.",
   },
   {
     icon: Shield,
@@ -81,6 +82,24 @@ const testimonials = [
     text: "Integrarlo con nuestros sistemas existentes fue sorprendentemente fácil. El equipo de FlowStack nos acompañó en cada paso del proceso.",
     rating: 5,
     avatar: "https://ui-avatars.com/api/?name=Pedro+Castillo&background=ff6b00&color=fff&size=80",
+  },
+];
+
+const marketDemands = [
+  {
+    icon: GitBranch,
+    title: "Automatización de Procesos",
+    desc: "Power Automate y RPA encabezan la lista de habilidades más buscadas. Las empresas necesitan profesionales que diseñen flujos inteligentes para eliminar tareas repetitivas y acelerar operaciones.",
+  },
+  {
+    icon: Brain,
+    title: "Inteligencia Artificial",
+    desc: "Desde chatbots hasta análisis predictivo, la IA está transformando cada industria. Buscamos expertos que sepan implementar soluciones de IA que resuelvan problemas reales de negocio.",
+  },
+  {
+    icon: BarChart3,
+    title: "Business Intelligence",
+    desc: "Power BI y visualización de datos son competencias críticas. Las organizaciones requieren dashboards inteligentes que conviertan datos en decisiones estratégicas en tiempo real.",
   },
 ];
 
@@ -531,6 +550,39 @@ export default function LandingPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== LO QUE EL MERCADO BUSCA ===== */}
+      <section id="market" className="py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-base font-semibold text-orange tracking-wide uppercase">Mercado</h2>
+            <p className="mt-3 text-3xl sm:text-4xl font-bold text-black tracking-tight">
+              Lo que el mercado busca
+            </p>
+            <p className="mt-4 text-lg text-zinc-500">
+              Las empresas colombianas están contratando activamente profesionales en automatización e inteligencia artificial. Estas son las áreas con mayor demanda.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-8">
+            {marketDemands.map((d) => (
+              <div key={d.title} className="group relative rounded-2xl border-2 border-orange/20 bg-gradient-to-br from-orange/5 to-orange/10 p-8 text-center hover:border-orange/50 hover:shadow-xl hover:shadow-orange/10 transition-all duration-500">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-orange text-white mx-auto shadow-lg shadow-orange/30">
+                  <d.icon className="h-7 w-7" />
+                </div>
+                <h3 className="mt-6 text-lg font-bold text-black">{d.title}</h3>
+                <p className="mt-3 text-sm text-zinc-600 leading-relaxed">{d.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-sm text-zinc-400">
+              En FlowStack te preparamos para estas demandas del mercado con soluciones prácticas y resultados medibles.
+            </p>
           </div>
         </div>
       </section>
