@@ -14,9 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FlowStack - Automatización Inteligente de Procesos",
+  title: "FlowStack - Stack Tecnológico de Automatización",
   description:
     "Transforma tus procesos administrativos con automatización inteligente. Flujos de aprobación multi-paso, dashboard en tiempo real y más. Stack Tecnológico de Automatización.",
+  metadataBase: new URL("https://stacktecnologicodeautomatizacion.com"),
 };
 
 export default function RootLayout({
