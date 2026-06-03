@@ -61,7 +61,7 @@ const testimonials = [
   {
     name: "Carlos Mendoza",
     role: "Director de Operaciones",
-    company: "Grupo Logístico MX",
+    sector: "Logística",
     text: "Implementar FlowStack transformó nuestra gestión administrativa. Redujimos tiempos de aprobación de 3 días a 2 horas. El ROI fue inmediato.",
     rating: 5,
     avatar: "https://ui-avatars.com/api/?name=Carlos+Mendoza&background=ff6b00&color=fff&size=80",
@@ -69,7 +69,7 @@ const testimonials = [
   {
     name: "Ana Lucía Reyes",
     role: "CFO",
-    company: "Inversiones del Sur",
+    sector: "Finanzas",
     text: "La trazabilidad que nos brinda la plataforma es incomparable. Cada aprobación queda registrada, cada paso documentado. Auditoría nunca fue tan sencilla.",
     rating: 5,
     avatar: "https://ui-avatars.com/api/?name=Ana+Lucia+Reyes&background=ff6b00&color=fff&size=80",
@@ -77,7 +77,7 @@ const testimonials = [
   {
     name: "Pedro Castillo",
     role: "Gerente de TI",
-    company: "Salud Integral SAS",
+    sector: "Salud",
     text: "Integrarlo con nuestros sistemas existentes fue sorprendentemente fácil. El equipo de FlowStack nos acompañó en cada paso del proceso.",
     rating: 5,
     avatar: "https://ui-avatars.com/api/?name=Pedro+Castillo&background=ff6b00&color=fff&size=80",
@@ -161,7 +161,7 @@ export default function LandingPage() {
 
       {/* ===== HERO ===== */}
       <section id="hero" className="relative min-h-screen flex items-center bg-black pt-18">
-        <div className="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center opacity-30" />
+        <div className="absolute inset-0 bg-[url('/images/hero-bg.png')] bg-cover bg-center opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/80 to-black/70" />
         <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-orange/10 rounded-full blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full py-20">
@@ -565,7 +565,7 @@ export default function LandingPage() {
                   />
                   <div>
                     <p className="text-sm font-semibold text-black">{t.name}</p>
-                    <p className="text-xs text-zinc-400">{t.role}, {t.company}</p>
+                    <p className="text-xs text-zinc-400">{t.role} · {t.sector}</p>
                   </div>
                 </div>
               </div>
@@ -673,7 +673,7 @@ export default function LandingPage() {
                 <a href="#hero" className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-base font-semibold text-orange hover:bg-zinc-100 transition-colors shadow-xl">
                   Solicitar demo <ChevronRight className="h-5 w-5" />
                 </a>
-                <a href="tel:+19543425676" className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-8 py-3.5 text-base font-semibold text-white hover:bg-white/10 transition-colors">
+                <a href="tel:+573114663373" className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-8 py-3.5 text-base font-semibold text-white hover:bg-white/10 transition-colors">
                   Llamar ahora
                 </a>
               </div>
