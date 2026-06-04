@@ -7,7 +7,7 @@ Plataforma SaaS para automatización de procesos administrativos con flujos de a
 ## Estructura del Proyecto
 
 ```
-automate.ai/                 # Repo monorepo
+FlowStack/                 # Repo monorepo
 ├── .opencode/
 │   ├── agents/
 │   │   ├── web-expert.md
@@ -113,3 +113,19 @@ automate.ai/                 # Repo monorepo
 | 2026-06-03 | Dominio stacktecnologicodeautomatizacion.com |
 | 2026-06-03 | Cloudflare DNS + SSL + Vercel domain |
 | 2026-06-03 | Vercel project rename: automate-ai → flowstack |
+| 2026-06-03 | **Nueva sección "Lo que el mercado busca"** entre Servicios y Casos de Éxito |
+| 2026-06-03 | Servicios actualizados: Power Automate, RPA, Power BI, IA en descripciones |
+| 2026-06-03 | Deploy a producción (stacktecnologicodeautomatizacion.com) |
+| 2026-06-03 | Sección Mercado + enlace navbar desplegados |
+
+---
+
+## Pendientes
+
+| Pendiente | Observación |
+|-----------|-------------|
+| **Correo corporativo** | Dominio en Namecheap, DNS en Cloudflare. Opciones: Namecheap Email (~$12/año), Google Workspace (~$6/mes), Cloudflare Email Routing (gratis → Gmail) |
+| **WhatsApp Business** | App Business manual (gratis, celular) o API (pago, integrable al dashboard) |
+| **design-cli** | CLI global para generar imágenes con IA desde terminal |
+| **campaign-cli** | CLI global para marketing (copy + imágenes) |
+| **Capacitaciones Fredy** | 4 módulos: Power Automate, Power BI, IA, Automatización integral |
