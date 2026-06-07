@@ -1,7 +1,15 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { ipLimiter, checkRateLimit } from "@/lib/rate-limit";
+
+const createRequestSchema = z.object({
+  processId: z.coerce.number().int().positive(),
+  title: z.string().min(1, "Título requerido").max(200),
+  description: z.string().max(5000).optional().nullable(),
+});
 
 export async function GET(request: Request) {
   const session = await getServerSession(authOptions);
@@ -10,7 +18,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
   if (searchParams.get("stats") === "true") {
-    const userId = parseInt((session.user as any).id);
+    const userId = parseInt(session.user.id);
 
     const totalProcesses = await prisma.process.count();
     const totalRequests = await prisma.request.count();
@@ -106,8 +114,22 @@ export async function POST(request: Request) {
   const session = await getServerSession(authOptions);
   if (!session) return NextResponse.json({ error: "No autorizado" }, { status: 401 });
 
-  const { processId, title, description } = await request.json();
-  const userId = parseInt((session.user as any).id);
+  const rateCheck = checkRateLimit(request, ipLimiter);
+  if (!rateCheck.ok) {
+    return NextResponse.json({ error: "Demasiadas solicitudes" }, { status: 429 });
+  }
+
+  const body = await request.json();
+  const parsed = createRequestSchema.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json(
+      { error: "Datos inválidos", details: parsed.error.flatten().fieldErrors },
+      { status: 400 }
+    );
+  }
+
+  const { processId, title, description } = parsed.data;
+  const userId = parseInt(session.user.id);
 
   const process = await prisma.process.findUnique({ where: { id: processId } });
   if (!process) return NextResponse.json({ error: "Proceso no encontrado" }, { status: 404 });

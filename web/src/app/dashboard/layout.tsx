@@ -9,7 +9,6 @@ import {
   CheckSquare,
   Clock,
   LogOut,
-  Zap,
   ChevronRight,
   Mail,
 } from "lucide-react";
@@ -90,7 +89,7 @@ export default function DashboardLayout({
                 {session.user?.name || "Usuario"}
               </p>
               <p className="text-xs text-zinc-500 truncate">
-                {(session.user as any)?.role === "admin"
+                {session.user?.role === "admin"
                   ? "Administrador"
                   : "Usuario"}
               </p>

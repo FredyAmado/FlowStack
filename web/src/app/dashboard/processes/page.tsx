@@ -31,7 +31,10 @@ export default function ProcessesPage() {
   }
 
   useEffect(() => {
-    loadProcesses();
+    fetch("/api/processes")
+      .then((r) => r.json())
+      .then(setProcesses)
+      .finally(() => setLoading(false));
   }, []);
 
   async function handleCreate(e: React.FormEvent) {

@@ -37,16 +37,11 @@ export default function TasksPage() {
   const [submitting, setSubmitting] = useState(false);
   const [filter, setFilter] = useState("all");
 
-  async function loadTasks() {
-    setLoading(true);
-    const res = await fetch("/api/approvals");
-    const data = await res.json();
-    setTasks(data);
-    setLoading(false);
-  }
-
   useEffect(() => {
-    loadTasks();
+    fetch("/api/approvals")
+      .then((r) => r.json())
+      .then(setTasks)
+      .finally(() => setLoading(false));
   }, []);
 
   async function handleAction(approvalId: number, status: string) {
@@ -64,7 +59,10 @@ export default function TasksPage() {
     setComment("");
     setActionId(null);
     setActionType(null);
-    loadTasks();
+    fetch("/api/approvals")
+      .then((r) => r.json())
+      .then(setTasks)
+      .catch(() => {});
   }
 
   const filtered = tasks.filter((t) => {

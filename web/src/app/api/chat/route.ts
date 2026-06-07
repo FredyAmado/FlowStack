@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
+import { chatLimiter, checkRateLimit } from "@/lib/rate-limit";
 
 const SYSTEM_PROMPT = `Eres un ejecutivo de ventas de FlowStack (Stack Tecnológico de Automatización), una consultora y plataforma que automatiza procesos administrativos y operativos para empresas.
 
@@ -48,14 +50,31 @@ Además de la consultoría, tenemos una plataforma SaaS que permite:
 
 Si no sabes algo, sé honesto y ofrece que un asesor los contacte. No inventes precios ni características.`;
 
-export async function POST(req: Request) {
-  try {
-    const { messages } = await req.json();
+const chatSchema = z.object({
+  messages: z.array(z.object({
+    role: z.enum(["user", "assistant"]),
+    content: z.string().min(1).max(2000),
+  })).min(1).max(20),
+});
 
-    if (!messages || !Array.isArray(messages)) {
-      return NextResponse.json({ error: "Mensajes requeridos" }, { status: 400 });
+export async function POST(req: Request) {
+  const rateCheck = checkRateLimit(req, chatLimiter);
+  if (!rateCheck.ok) {
+    return NextResponse.json(
+      { error: "Demasiadas solicitudes. Intenta en un minuto." },
+      { status: 429, headers: { "Retry-After": String(Math.ceil(rateCheck.resetIn / 1000)) } }
+    );
+  }
+
+  try {
+    const body = await req.json();
+    const parsed = chatSchema.safeParse(body);
+
+    if (!parsed.success) {
+      return NextResponse.json({ error: "Mensajes inválidos" }, { status: 400 });
     }
 
+    const { messages } = parsed.data;
     const apiKey = process.env.OPENROUTER_API_KEY;
     if (!apiKey) {
       return NextResponse.json({ error: "IA no configurada" }, { status: 500 });

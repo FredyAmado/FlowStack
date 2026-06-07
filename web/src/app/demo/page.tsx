@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import {
   Zap, ChevronRight, ChevronLeft, Play, Pause,
-  BarChart3, GitBranch, CheckSquare, Clock, CheckCircle,
-  ArrowRight, FileText, Users, TrendingUp, Target, Eye, Award,
+  CheckCircle, GitBranch, FileText, Users,
+  ArrowRight,
 } from "lucide-react";
 import { BarChart, Bar, XAxis, ResponsiveContainer } from "recharts";
 
@@ -522,12 +523,12 @@ function CTAScene() {
         >
           Comenzar ahora <ArrowRight className="h-5 w-5" />
         </a>
-        <a
-          href="/"
-          className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-8 py-3.5 text-base font-semibold text-white hover:bg-white/10 transition-colors"
-        >
-          Conocer más
-        </a>
+                <Link
+                  href="/"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-8 py-3.5 text-base font-semibold text-white hover:bg-white/10 transition-colors"
+                >
+                  Conocer más
+                </Link>
       </div>
     </div>
   );
