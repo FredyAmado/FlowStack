@@ -21,6 +21,10 @@ next-env.d.ts
 .vercel
 *.pem
 .vscode/
+agent-browser/
+client-template/
+eyes-cli/
+output/
 battery-limiter.ps1
 check-bios-return.ps1
 check-bios-settings.ps1
