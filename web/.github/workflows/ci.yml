@@ -1,0 +1,43 @@
+# Integración Continua — FlowStack Web
+# Se ejecuta en pushes a main y en Pull Requests.
+
+name: CI — FlowStack Web
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    name: Validación y Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Generar cliente de Prisma
+        run: npx prisma generate
+
+      - name: Ejecutar ESLint
+        run: npm run lint
+
+      - name: Verificar tipos (TypeScript —noEmit)
+        run: npx tsc --noEmit
+
+      - name: Ejecutar tests (Vitest)
+        run: npm run test
+
+      - name: Compilar producción (next build)
+        run: npm run build

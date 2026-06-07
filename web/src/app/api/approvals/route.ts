@@ -1,13 +1,21 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { ipLimiter, checkRateLimit } from "@/lib/rate-limit";
+
+const patchApprovalSchema = z.object({
+  approvalId: z.coerce.number().int().positive(),
+  status: z.enum(["approved", "rejected"]),
+  comment: z.string().max(2000).optional().nullable(),
+});
 
 export async function GET() {
   const session = await getServerSession(authOptions);
   if (!session) return NextResponse.json({ error: "No autorizado" }, { status: 401 });
 
-  const userId = parseInt((session.user as any).id);
+  const userId = parseInt(session.user.id);
 
   const approvals = await prisma.approval.findMany({
     where: { userId },
@@ -29,8 +37,22 @@ export async function PATCH(request: Request) {
   const session = await getServerSession(authOptions);
   if (!session) return NextResponse.json({ error: "No autorizado" }, { status: 401 });
 
-  const { approvalId, status, comment } = await request.json();
-  const userId = parseInt((session.user as any).id);
+  const rateCheck = checkRateLimit(request, ipLimiter);
+  if (!rateCheck.ok) {
+    return NextResponse.json({ error: "Demasiadas solicitudes" }, { status: 429 });
+  }
+
+  const body = await request.json();
+  const parsed = patchApprovalSchema.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json(
+      { error: "Datos inválidos", details: parsed.error.flatten().fieldErrors },
+      { status: 400 }
+    );
+  }
+
+  const { approvalId, status, comment } = parsed.data;
+  const userId = parseInt(session.user.id);
 
   const approval = await prisma.approval.findUnique({
     where: { id: approvalId },

@@ -120,6 +120,70 @@ FlowStack/                 # Repo monorepo
 
 ---
 
+---
+
+## Análisis de Mercado vs Posicionamiento Actual
+
+Basado en `estudio-mercado.md` (213 líneas, 2026-06-07).
+
+### Alineación Actual (✅ logrado vs estudio)
+
+| Recomendación del estudio | Estado |
+|---|---|
+| WhatsApp Business como canal primario | ✅ Componente WhatsAppButton + wa.me |
+| Página de precios transparente ($0/$29/custom) | ✅ Pricing section en landing |
+| Formulario de lead con contacto | ✅ Hero form + sección CTA |
+| Doble modelo (SaaS + Consultoría) | ✅ Landing lo comunica |
+| Chatbot IA integrado | ✅ ChatBot con Llama 3.1 |
+| Aprobaciones multi-paso con auditoría | ✅ Backend completo |
+| ISO 27001 como seña de confianza | ✅ Sección ISO en landing |
+| SEO + OpenGraph + Sitemap | ✅ metadata dinámica + sitemap.ts |
+
+### Pendiente vs Estudio
+
+| Item | Prioridad | Nota |
+|---|---|---|
+| Demo interactiva (3 procesos precargados) | 🔴 Alta | Login → crear proceso guiado |
+| Onboarding wizard primer proceso | 🔴 Alta | Paso a paso tooltip/guía |
+| Blog con contenido SEO | 🟡 Media | "automatizar aprobaciones Colombia" |
+| WhatsApp Business API | 🟡 Media | wa.me es básico; API permite templates + notificaciones |
+| Correo corporativo (@stacktecnologicodeautomatizacion.com) | 🔴 Alta | SMTP configurado en env, falta activar |
+| Certificación ISO 27001 real | 🟢 Baja | Por ahora es badge aspiracional |
+| Multi-tenancy para agencias | 🟢 Baja | Para Fase 3 de expansión |
+| API pública | 🟢 Baja | Para integraciones custom |
+
+### Recomendaciones Estratégicas
+
+**1. Pricing:**
+- Starter $0/mes ✅ (gancho)
+- Professional $29/mes ✅ (vs $420-$750 de RPA enterprise)
+- Sugerencia: agregar tier **Team a $15/mes** (5 usuarios, 100 solicitudes/mes) para micro-PyMEs que no saltan directo a $29
+
+**2. Foco Geográfico:**
+- El estudio recomienda **Bogotá primero** → Colombia → LATAM
+- Cambiar meta description y keywords para incluir "Bogotá", "Colombia" más prominentemente
+- SEO local: "automatización de procesos Bogotá", "RPA Colombia"
+
+**3. Priorización de Servicios (según demanda de mercado):**
+1. Power Automate + RPA → lo más buscado
+2. IA/Chatbots → segundo más demandado
+3. Power BI / Dashboards → tercero
+(Actual landing ya tiene este orden ✅)
+
+**4. Diferenciación contra competidores:**
+- Altow/IT-NOVA/IAC: no publican precios → FlowStack muestra precios claros ✅
+- Zapier/Make/n8n: no tienen aprobaciones multi-paso con auditoría → FlowStack sí ✅
+- Power Automate: $15/user/mes pero requiere ecosistema M365 → FlowStack es independiente ✅
+
+### Conclusión del Análisis
+FlowStack está **bien posicionado** para el momento del mercado. El estudio valida la estrategia actual. Las brechas principales son:
+1. ✅ WhatsApp ya integrado (wa.me)
+2. ✅ SMTP configurado (falta activar en producción)
+3. ❌ Demo interactiva precargada — siguiente sprint recomendado
+4. ❌ Onboarding guiado — siguiente sprint recomendado
+
+---
+
 ## Pendientes
 
 | Pendiente | Observación |

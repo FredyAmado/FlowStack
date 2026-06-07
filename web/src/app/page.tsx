@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import AutomationIllustration from "@/components/AutomationIllustration";
 import ChatBot from "@/components/ChatBot";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const navLinks = [
   { label: "Inicio", href: "#hero" },
@@ -626,6 +627,67 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ===== CONFIANZA / ISO ===== */}
+      <section id="trust" className="py-24 bg-zinc-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-base font-semibold text-orange tracking-wide uppercase">Confianza y Cumplimiento</h2>
+            <p className="mt-3 text-3xl sm:text-4xl font-bold text-black tracking-tight">
+              Certificaciones que respaldan tu tranquilidad
+            </p>
+            <p className="mt-4 text-lg text-zinc-500">
+              Operamos bajo los más altos estándares de calidad y seguridad de la información.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="group relative rounded-2xl border border-zinc-200 bg-white p-8 hover:border-orange/30 hover:shadow-xl hover:shadow-orange/5 transition-all duration-300">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg shadow-emerald-200">
+                  <Shield className="h-8 w-8" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-black">ISO 13485</h3>
+                  <p className="text-sm text-zinc-400">Sistema de Gestión de Calidad</p>
+                </div>
+              </div>
+              <p className="text-sm text-zinc-600 leading-relaxed">
+                Certificación internacional para sistemas de gestión de calidad en organizaciones 
+                que participan en el diseño, producción, instalación y servicio de dispositivos 
+                médicos y servicios relacionados. Garantiza que nuestros procesos cumplen con los 
+                requisitos regulatorios más exigentes.
+              </p>
+            </div>
+
+            <div className="group relative rounded-2xl border border-zinc-200 bg-white p-8 hover:border-orange/30 hover:shadow-xl hover:shadow-orange/5 transition-all duration-300">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-orange to-orange-dark text-white shadow-lg shadow-orange-200">
+                  <Shield className="h-8 w-8" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-black">ISO 27001</h3>
+                  <p className="text-sm text-zinc-400">Sistema de Gestión de Seguridad de la Información</p>
+                </div>
+              </div>
+              <p className="text-sm text-zinc-600 leading-relaxed">
+                Estándar internacional para la gestión de la seguridad de la información. 
+                Asegura que implementamos controles robustos para proteger la confidencialidad, 
+                integridad y disponibilidad de tus datos. Auditado y certificado anualmente 
+                por entidades acreditadas.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-sm text-zinc-400 max-w-2xl mx-auto">
+              Nuestro compromiso con la calidad y seguridad significa que tu información está 
+              protegida con los más altos estándares de la industria. Puedes enfocarte en tu 
+              negocio, nosotros nos encargamos del resto.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ===== PRICING ===== */}
       <section id="pricing" className="py-24 bg-black">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -728,6 +790,7 @@ export default function LandingPage() {
                 <a href="tel:+573114663373" className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-8 py-3.5 text-base font-semibold text-white hover:bg-white/10 transition-colors">
                   Llamar ahora
                 </a>
+                <WhatsAppButton />
               </div>
             </div>
           </div>
