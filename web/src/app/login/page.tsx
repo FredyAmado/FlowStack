@@ -61,7 +61,7 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full rounded-lg border border-white/20 bg-white/5 px-4 py-2.5 text-white placeholder-zinc-500 focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/30 transition"
-              placeholder="admin@automate.ai"
+              placeholder="admin@flowstack.ai"
             />
           </div>
 
@@ -93,7 +93,7 @@ export default function LoginPage() {
         </form>
 
         <p className="mt-6 text-center text-xs text-zinc-500">
-          Demo: admin@automate.ai / admin123
+          Demo: admin@flowstack.ai / admin123
         </p>
       </div>
     </div>

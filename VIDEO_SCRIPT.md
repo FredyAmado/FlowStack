@@ -1,6 +1,6 @@
-# Video Demo: automate.ai — Guion Profesional
+# Video Demo: FlowStack — Guion Profesional
 
-**Título:** Automatización de Procesos Administrativos con automate.ai
+**Título:** Automatización de Procesos Administrativos con FlowStack
 **Duración estimada:** 2:30 minutos
 **Audiencia:** Dueños de empresas, Gerentes de Operaciones, Directores Administrativos
 **Tono:** Profesional, directo, orientado a resultados
@@ -15,7 +15,7 @@
 | **Visual** | Pantalla dividida: izquierda un escritorio caótico con papeles, post-its, correos sin leer. Derecha un reloj avanzando rápido. |
 | **Texto en pantalla** | "¿Cuánto tiempo pierde tu equipo en tareas administrativas?" |
 | **Locutor** | "Las empresas pierden hasta el 40% de su tiempo en procesos administrativos manuales. Aprobaciones que tardan días, documentos que se pierden, trazabilidad que no existe." |
-| **Transición** | Fundido a negro. Aparece el logo de automate.ai con un destello naranja. |
+| **Transición** | Fundido a negro. Aparece el logo de FlowStack con un destello naranja. |
 
 ---
 
@@ -23,9 +23,9 @@
 
 | Elemento | Descripción |
 |---|---|
-| **Visual** | Animación de la ilustración de automate.ai (nodos conectándose, flujos activándose). Transición a la landing page. |
-| **Texto en pantalla** | "Presentamos automate.ai" |
-| **Locutor** | "Por eso creamos automate.ai. Una plataforma de automatización inteligente que elimina la fricción administrativa y libera el talento de tu equipo para lo que realmente importa." |
+| **Visual** | Animación de la ilustración de FlowStack (nodos conectándose, flujos activándose). Transición a la landing page. |
+| **Texto en pantalla** | "Presentamos FlowStack" |
+| **Locutor** | "Por eso creamos FlowStack. Una plataforma de automatización inteligente que elimina la fricción administrativa y libera el talento de tu equipo para lo que realmente importa." |
 | **Transición** | Zoom suave hacia el dashboard. |
 
 ---
@@ -78,9 +78,9 @@
 
 | Elemento | Descripción |
 |---|---|
-| **Visual** | Logo de automate.ai grande. Fondo negro con partículas naranjas. Botón "Solicitar demo" animado. |
-| **Texto en pantalla** | "Automatiza lo tedioso. Potencia lo humano. Acelera tu empresa." + "www.automate.ai" |
-| **Locutor** | "Automatiza lo tedioso, potencia lo humano, acelera tu empresa. automate.ai — transforma tu gestión administrativa hoy." |
+| **Visual** | Logo de FlowStack grande. Fondo negro con partículas naranjas. Botón "Solicitar demo" animado. |
+| **Texto en pantalla** | "Automatiza lo tedioso. Potencia lo humano. Acelera tu empresa." + "www.flowstack.ai" |
+| **Locutor** | "Automatiza lo tedioso, potencia lo humano, acelera tu empresa. FlowStack — transforma tu gestión administrativa hoy." |
 | **Cierre** | Fundido a negro con logo y eslogan. |
 
 ---

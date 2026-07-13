@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | FlowStack",
   },
   description:
-    "Transforma tus procesos administrativos con automatización inteligente. Flujos de aprobación multi-paso, dashboard en tiempo real, Power BI, RPA e IA para empresas en Latinoamérica.",
+    "Transforma tus procesos administrativos e industriales con automatización inteligente. Flujos de aprobación multi-paso, dashboard en tiempo real, CRM con WhatsApp, RPA e IA para empresas en Latinoamérica.",
   keywords: [
     "automatización de procesos",
     "Power Automate",
@@ -35,8 +35,20 @@ export const metadata: Metadata = {
     "Bogotá",
     "Colombia",
     "LATAM",
+    "automatización de procesos Bogotá",
+    "RPA Colombia",
+    "aprobaciones automáticas Colombia",
+    "transformación digital Colombia",
+    "Power Automate Colombia",
+    "FlowStack Bogotá",
   ],
   metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: siteUrl,
+    languages: {
+      "es-CO": siteUrl,
+    },
+  },
   icons: { icon: "/favicon.svg" },
   openGraph: {
     title: "FlowStack - Stack Tecnológico de Automatización",
@@ -91,31 +103,62 @@ export default function RootLayout({
             />
           </>
         )}
-        {/* JSON-LD Organization Schema */}
+        {/* JSON-LD Organization + LocalBusiness Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "FlowStack",
-              url: siteUrl,
-              logo: `${siteUrl}/images/flowstack-logo.svg`,
-              description:
-                "Stack Tecnológico de Automatización. Soluciones de automatización inteligente para empresas en Latinoamérica.",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Bogotá",
-                addressCountry: "CO",
-              },
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+57-311-466-3373",
-                contactType: "sales",
-                availableLanguage: ["Spanish"],
-              },
-              sameAs: [
-                "https://stacktecnologicodeautomatizacion.com",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  name: "FlowStack",
+                  url: siteUrl,
+                  logo: `${siteUrl}/images/flowstack-logo.svg`,
+                  description:
+                    "Stack Tecnológico de Automatización. Soluciones de automatización inteligente para empresas en Latinoamérica.",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Bogotá",
+                    addressCountry: "CO",
+                  },
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    telephone: "+57-311-466-3373",
+                    contactType: "sales",
+                    availableLanguage: ["Spanish"],
+                  },
+                  sameAs: [
+                    "https://stacktecnologicodeautomatizacion.com",
+                  ],
+                },
+                {
+                  "@type": "LocalBusiness",
+                  name: "FlowStack",
+                  url: siteUrl,
+                  image: `${siteUrl}/og-image.png`,
+                  description:
+                    "Stack Tecnológico de Automatización. Soluciones de automatización inteligente para empresas en Bogotá y toda Colombia.",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Bogotá",
+                    addressRegion: "Bogotá D.C.",
+                    addressCountry: "CO",
+                  },
+                  telephone: "+57-311-466-3373",
+                  email: "contacto@stacktecnologicodeautomatizacion.com",
+                  priceRange: "$0 - $29/mes",
+                  areaServed: ["Bogotá", "Colombia", "Latinoamérica"],
+                  hasOfferCatalog: {
+                    "@type": "OfferCatalog",
+                    name: "Planes FlowStack",
+                    itemListElement: [
+                      { "@type": "Offer", name: "Starter", price: "0", priceCurrency: "USD" },
+                      { "@type": "Offer", name: "Team", price: "15", priceCurrency: "USD" },
+                      { "@type": "Offer", name: "Professional", price: "29", priceCurrency: "USD" },
+                    ],
+                  },
+                },
               ],
             }),
           }}

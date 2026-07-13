@@ -85,8 +85,8 @@ FlowStack/                 # Repo monorepo
 
 | Rol | Email | Contraseña |
 |---|---|---|
-| Admin | admin@automate.ai | admin123 |
-| Usuario | user@automate.ai | user123 |
+| Admin | admin@flowstack.ai | admin123 |
+| Demo  | demo@flowstack.ai   | user123 |
 
 ---
 
