@@ -5,11 +5,19 @@ import Link from "next/link";
 import {
   Zap, ChevronRight, ChevronLeft, Play, Pause,
   CheckCircle, GitBranch, FileText, Users,
-  ArrowRight,
+  ArrowRight, Smartphone, Bell,
 } from "lucide-react";
-import { BarChart, Bar, XAxis, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from "recharts";
 
 const steps = [
+  {
+    id: "onboarding",
+    title: "Bienvenido a FlowStack",
+    subtitle: "En 3 pasos verás cómo funciona",
+    bg: "bg-black",
+    textColor: "text-white",
+    accent: "text-orange",
+  },
   {
     id: "problem",
     title: "El problema",
@@ -59,6 +67,14 @@ const steps = [
     accent: "text-orange",
   },
   {
+    id: "mobile",
+    title: "App Móvil",
+    subtitle: "Automatización desde cualquier lugar",
+    bg: "bg-black",
+    textColor: "text-white",
+    accent: "text-orange",
+  },
+  {
     id: "cta",
     title: "¿Listo para transformar tu empresa?",
     subtitle: "Automatiza lo tedioso. Potencia lo humano. Acelera tu empresa.",
@@ -81,6 +97,31 @@ const approvalSteps = [
   { step: 2, user: "Director Financiero", status: "approved", comment: "Presupuesto disponible" },
   { step: 3, user: "Gerente General", status: "pending", comment: "..." },
 ];
+
+function renderScene(stepId: string, animPhase: number) {
+  switch (stepId) {
+    case "onboarding":
+      return <OnboardingScene animPhase={animPhase} />;
+    case "problem":
+      return <ProblemScene />;
+    case "dashboard":
+      return <DashboardScene animPhase={animPhase} />;
+    case "process":
+      return <ProcessScene animPhase={animPhase} />;
+    case "request":
+      return <RequestScene animPhase={animPhase} />;
+    case "approval":
+      return <ApprovalScene animPhase={animPhase} />;
+    case "history":
+      return <HistoryScene animPhase={animPhase} />;
+    case "mobile":
+      return <MobileAppScene animPhase={animPhase} />;
+    case "cta":
+      return <CTAScene />;
+    default:
+      return null;
+  }
+}
 
 export default function DemoPage() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -185,13 +226,7 @@ export default function DemoPage() {
 
           {/* Dynamic content per step */}
           <div className="animate-fadeIn min-h-[400px] flex items-center justify-center">
-            {currentStep === 0 && <ProblemScene />}
-            {currentStep === 1 && <DashboardScene animPhase={animPhase} />}
-            {currentStep === 2 && <ProcessScene animPhase={animPhase} />}
-            {currentStep === 3 && <RequestScene animPhase={animPhase} />}
-            {currentStep === 4 && <ApprovalScene animPhase={animPhase} />}
-            {currentStep === 5 && <HistoryScene animPhase={animPhase} />}
-            {currentStep === 6 && <CTAScene />}
+            {renderScene(step.id, animPhase)}
           </div>
         </div>
       </div>
@@ -220,13 +255,52 @@ export default function DemoPage() {
             </button>
           ) : (
             <a
-              href="/login"
+              href="/login?demo=1"
               className="flex items-center gap-1.5 rounded-lg bg-white px-4 py-2 text-sm font-semibold text-orange hover:bg-zinc-100 transition"
             >
-              Comenzar ahora <ArrowRight className="h-4 w-4" />
+              Crear mi primer proceso <ArrowRight className="h-4 w-4" />
             </a>
           )}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function OnboardingScene({ animPhase }: { animPhase: number }) {
+  const show = (t: number) => animPhase >= t;
+  const cards = [
+    { icon: Zap, title: "Crea procesos", desc: "Define flujos de aprobación multi-paso en segundos", showAt: 1 },
+    { icon: FileText, title: "Solicita aprobaciones", desc: "Envía solicitudes que se enrutan automáticamente", showAt: 5 },
+    { icon: CheckCircle, title: "Revisa dashboard", desc: "Monitorea el estado de tus solicitudes en tiempo real", showAt: 9 },
+  ];
+  return (
+    <div className="w-full max-w-3xl space-y-8">
+      <div className="flex items-center justify-center gap-3">
+        {[1, 2, 3].map((i) => (
+          <div
+            key={i}
+            className={`h-2 w-20 rounded-full transition-all duration-700 ${
+              show(i * 4 - 3) ? "bg-orange" : "bg-zinc-700"
+            }`}
+          />
+        ))}
+      </div>
+      <div className="grid md:grid-cols-3 gap-6">
+        {cards.map((card) => (
+          <div
+            key={card.title}
+            className={`rounded-xl border border-zinc-700 bg-white/5 p-6 text-center transition-all duration-700 ${
+              show(card.showAt) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-orange/10 border border-orange/20 mb-4">
+              <card.icon className="h-7 w-7 text-orange" />
+            </div>
+            <p className="text-white font-semibold mb-2">{card.title}</p>
+            <p className="text-sm text-zinc-400 leading-relaxed">{card.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -314,6 +388,7 @@ function DashboardScene({ animPhase }: { animPhase: number }) {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={chartData}>
               <XAxis dataKey="name" stroke="#a1a1aa" fontSize={12} />
+              <YAxis stroke="#a1a1aa" fontSize={12} />
               <Bar dataKey="pendientes" fill="#f59e0b" radius={[4, 4, 0, 0]} />
               <Bar dataKey="aprobados" fill="#22c55e" radius={[4, 4, 0, 0]} />
             </BarChart>
@@ -498,6 +573,87 @@ function HistoryScene({ animPhase }: { animPhase: number }) {
   );
 }
 
+function MobileAppScene({ animPhase }: { animPhase: number }) {
+  const show = (t: number) => animPhase >= t;
+  const notifs = [
+    { icon: Bell, text: "Aprobación pendiente: Factura XYZ", time: "10:32", showAt: 1 },
+    { icon: CheckCircle, text: "Solicitud #234 aprobada", time: "10:15", showAt: 5 },
+    { icon: Smartphone, text: "Proceso iniciado desde app", time: "09:45", showAt: 9 },
+  ];
+  return (
+    <div className="w-full max-w-4xl flex items-center justify-center gap-8 md:gap-16">
+      {/* Phone mockup */}
+      <div
+        className={`relative w-56 shrink-0 rounded-[2.5rem] border-4 border-zinc-700 bg-black p-4 shadow-2xl transition-all duration-700 ${
+          show(1) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
+      >
+        {/* Notch */}
+        <div className="mx-auto mb-4 h-5 w-28 rounded-full bg-zinc-900" />
+        {/* Screen content */}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-semibold text-white">FlowStack</span>
+            <span className="text-[10px] text-zinc-500">9:41</span>
+          </div>
+          <div className="rounded-lg bg-zinc-900 p-3">
+            <p className="text-xs font-semibold text-white">Dashboard</p>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              <div className="rounded-md bg-zinc-800 p-2 text-center">
+                <p className="text-xs font-bold text-orange">8</p>
+                <p className="text-[10px] text-zinc-500">Pendientes</p>
+              </div>
+              <div className="rounded-md bg-zinc-800 p-2 text-center">
+                <p className="text-xs font-bold text-emerald-400">23</p>
+                <p className="text-[10px] text-zinc-500">Hoy</p>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-2">
+            <p className="text-[10px] font-semibold text-zinc-400 uppercase tracking-wide">Notificaciones</p>
+            {notifs.map((n, i) => (
+              <div
+                key={i}
+                className={`flex items-center gap-2 rounded-lg bg-zinc-900 p-2 transition-all duration-500 ${
+                  show(n.showAt) ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                }`}
+              >
+                <n.icon className="h-3 w-3 text-orange shrink-0" />
+                <p className="text-[10px] text-zinc-300 leading-tight">{n.text}</p>
+                <span className="ml-auto text-[9px] text-zinc-600 shrink-0">{n.time}</span>
+              </div>
+            ))}
+          </div>
+          {/* Home indicator */}
+          <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-zinc-700" />
+        </div>
+      </div>
+
+      {/* Features list */}
+      <div className="space-y-6 max-w-xs">
+        {[
+          { title: "Aprueba desde el celular", desc: "Notificaciones push en tiempo real para aprobar o rechazar solicitudes", showAt: 3 },
+          { title: "Dashboard móvil", desc: "KPIs, métricas y estado de procesos en la palma de tu mano", showAt: 7 },
+          { title: "Modo offline", desc: "Trabaja sin conexión, los datos se sincronizan automáticamente", showAt: 11 },
+        ].map((f) => (
+          <div
+            key={f.title}
+            className={`flex items-start gap-3 transition-all duration-700 ${
+              show(f.showAt) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
+            <CheckCircle className="h-5 w-5 text-orange mt-0.5 shrink-0" />
+            <div>
+              <p className="text-sm font-semibold text-white">{f.title}</p>
+              <p className="text-xs text-zinc-400 mt-1">{f.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CTAScene() {
   return (
     <div className="text-center space-y-8">
@@ -518,10 +674,10 @@ function CTAScene() {
       </div>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="/login"
+          href="/login?demo=1"
           className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-base font-semibold text-orange hover:bg-zinc-100 transition-colors shadow-xl"
         >
-          Comenzar ahora <ArrowRight className="h-5 w-5" />
+          Crear mi primer proceso <ArrowRight className="h-5 w-5" />
         </a>
                 <Link
                   href="/"

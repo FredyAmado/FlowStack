@@ -16,18 +16,18 @@ async function main() {
     update: {},
     create: {
       name: "Admin",
-      email: "admin@automate.ai",
+      email: "admin@flowstack.ai",
       password: adminPassword,
       role: "admin",
     },
   });
 
   const user = await prisma.user.upsert({
-    where: { email: "user@automate.ai" },
+    where: { email: "demo@flowstack.ai" },
     update: {},
     create: {
       name: "Usuario Demo",
-      email: "user@automate.ai",
+      email: "demo@flowstack.ai",
       password: userPassword,
       role: "user",
     },
@@ -55,6 +55,15 @@ async function main() {
     data: {
       name: "Compra de Insumos",
       description: "Autorización de compras de insumos y materiales",
+      steps: 3,
+      createdById: admin.id,
+    },
+  });
+
+  const process4 = await prisma.process.create({
+    data: {
+      name: "Reembolso de Gastos",
+      description: "Solicitud y aprobación de reembolsos de gastos de viaje en 3 pasos: registro, revisión gerencial, aprobación final",
       steps: 3,
       createdById: admin.id,
     },
@@ -113,14 +122,14 @@ async function main() {
   await prisma.activityLog.create({
     data: {
       userId: admin.id,
-      action: "creó 3 procesos de automatización",
-      details: "Aprobación de Facturas, Solicitud de Vacaciones, Compra de Insumos",
+      action: "creó 4 procesos de automatización",
+      details: "Aprobación de Facturas, Solicitud de Vacaciones, Compra de Insumos, Reembolso de Gastos",
     },
   });
 
   console.log("Seed completado exitosamente");
-  console.log("  Admin: admin@automate.ai / admin123");
-  console.log("  User:  user@automate.ai / user123");
+  console.log("  Admin: admin@flowstack.ai / admin123");
+  console.log("  Demo:  demo@flowstack.ai / user123");
 }
 
 main()

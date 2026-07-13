@@ -30,3 +30,5 @@ check-bios-return.ps1
 check-bios-settings.ps1
 install-battery-limiter.ps1
 set-battery-limit.ps1
+
+.vercel

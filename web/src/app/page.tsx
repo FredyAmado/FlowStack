@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   Menu, X, Zap, ArrowRight, CheckCircle, Target, Eye, Heart,
   BarChart3, GitBranch, Shield, Users, TrendingUp, Globe, Award,
-  ChevronRight, Star, Quote, Send, Brain,
+  ChevronRight, Star, Quote, Send, Brain, Smartphone,
 } from "lucide-react";
 import AutomationIllustration from "@/components/AutomationIllustration";
 import ChatBot from "@/components/ChatBot";
@@ -23,7 +23,7 @@ const services = [
   {
     icon: GitBranch,
     title: "Automatización de Procesos",
-    desc: "Power Automate, RPA y flujos inteligentes para aprobaciones multi-paso, gestión documental y orquestación de tareas administrativas.",
+    desc: "Power Automate, RPA y flujos inteligentes para aprobaciones multi-paso, gestión documental, orquestación de tareas administrativas e industriales.",
   },
   {
     icon: BarChart3,
@@ -50,31 +50,36 @@ const services = [
     title: "Integración Total",
     desc: "Conexión con tus sistemas existentes vía API, webhooks y exportación de datos.",
   },
+  {
+    icon: Smartphone,
+    title: "Desarrollo de Apps Móviles",
+    desc: "Aplicaciones nativas e híbridas con React Native y Flutter. Desde prototipos hasta apps en producción con backend integrado.",
+  },
 ];
 
 const stats = [
-  { value: "15+", label: "Años de experiencia" },
-  { value: "500+", label: "Empresas confían" },
-  { value: "50K+", label: "Procesos automatizados" },
-  { value: "99.9%", label: "Uptime garantizado" },
+  { value: "$120B+", label: "Mercado global automatización 2026" },
+  { value: "77%", label: "Empresas colombianas sin IA" },
+  { value: "2,295+", label: "Startups activas en Colombia" },
+  { value: "Bogotá", label: "Top tech hub LATAM" },
 ];
 
 const testimonials = [
   {
-    name: "Carlos Mendoza",
-    role: "Director de Operaciones",
-    sector: "Logística",
-    text: "Implementar FlowStack transformó nuestra gestión administrativa. Redujimos tiempos de aprobación de 3 días a 2 horas. El ROI fue inmediato.",
+    name: "Fredy Amado",
+    role: "CEO",
+    sector: "Nebula — Agencia Digital",
+    text: "FlowStack transformó nuestra operación. Hoy gestionamos cotizaciones, seguimiento de proyectos y atención al cliente todo desde n8n + WhatsApp integrado con FlowStack. Nuestro CRM nunca fue tan eficiente.",
     rating: 5,
-    avatar: "https://ui-avatars.com/api/?name=Carlos+Mendoza&background=ff6b00&color=fff&size=80",
+    avatar: "https://ui-avatars.com/api/?name=Fredy+Amado&background=654090&color=fff&size=80",
   },
   {
-    name: "Ana Lucía Reyes",
-    role: "CFO",
-    sector: "Finanzas",
-    text: "La trazabilidad que nos brinda la plataforma es incomparable. Cada aprobación queda registrada, cada paso documentado. Auditoría nunca fue tan sencilla.",
+    name: "Andrés Torres",
+    role: "Gerente de Operaciones",
+    sector: "Mantus — Mantenimiento Técnico",
+    text: "Con FlowStack automatizamos órdenes de trabajo, despacho de técnicos vía WhatsApp y control de inventario de repuestos. Redujimos el tiempo de respuesta a emergencias de 48h a 4h. Un antes y después para nuestra operación.",
     rating: 5,
-    avatar: "https://ui-avatars.com/api/?name=Ana+Lucia+Reyes&background=ff6b00&color=fff&size=80",
+    avatar: "https://ui-avatars.com/api/?name=Andres+Torres&background=f97316&color=fff&size=80",
   },
   {
     name: "Pedro Castillo",
@@ -190,18 +195,18 @@ export default function LandingPage() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-4 py-1.5 text-sm text-orange-light mb-6">
                 <Zap className="h-4 w-4" />
-                Transformación digital empresarial
+                Automatización administrativa y desarrollo de apps móviles
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Automatiza lo tedioso.{" "}
+                Automatización{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange to-orange-light">
-                  Potencia lo humano.
+                  administrativa + apps móviles.
                 </span>{" "}
-                Acelera tu empresa.
+                Potencia lo humano. Acelera tu empresa.
               </h1>
               <p className="mt-6 text-lg text-zinc-400 max-w-xl leading-relaxed">
                 Aprobaciones en horas, visibilidad en tiempo real, control total sin esfuerzo.
-                Soluciones de automatización inteligente diseñadas para empresas que quieren crecer.
+                Automatización inteligente, desarrollo de apps móviles y CRM empresarial en un solo ecosistema.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a href="#contact" className="inline-flex items-center gap-2 rounded-lg bg-orange px-6 py-3 text-sm font-semibold text-white hover:bg-orange-light transition-colors shadow-xl shadow-orange/25">
@@ -300,10 +305,10 @@ export default function LandingPage() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-base font-semibold text-orange tracking-wide uppercase">Nosotros</h2>
             <p className="mt-3 text-3xl sm:text-4xl font-bold text-black tracking-tight">
-              Transformando empresas a través de la automatización
+              Automatización administrativa + desarrollo de apps móviles
             </p>
             <p className="mt-4 text-lg text-zinc-500">
-              En FlowStack creemos que la tecnología debe liberar el potencial humano, no reemplazarlo.
+              En FlowStack creemos que la tecnología debe liberar el potencial humano, no reemplazarlo. Llevamos la automatización a cada dispositivo.
             </p>
           </div>
 
@@ -319,7 +324,8 @@ export default function LandingPage() {
                 <p className="mt-4 text-zinc-400 leading-relaxed">
                   FlowStack nació de una verdad incómoda: las empresas pasan el 40% de su tiempo 
                   en tareas administrativas que no agregan valor. Procesos de aprobación que tardan 
-                  días, documentos que se pierden, trazabilidad que no existe.
+                  días, documentos que se pierden, trazabilidad que no existe. Hoy también desarrollamos 
+                  apps móviles para llevar la automatización al bolsillo de tu equipo.
                 </p>
                 <p className="mt-3 text-zinc-400 leading-relaxed">
                   Fundamos FlowStack con una convicción simple: <span className="text-white font-medium">la tecnología no debería crear más burocracia, debería eliminarla.</span> 
@@ -529,9 +535,9 @@ export default function LandingPage() {
             <p className="mt-3 text-3xl sm:text-4xl font-bold text-black tracking-tight">
               Soluciones personalizadas de automatización
             </p>
-            <p className="mt-4 text-lg text-zinc-500">
-              Desde el concepto hasta el código, te acompañamos en cada etapa.
-            </p>
+          <p className="mt-4 text-lg text-zinc-500">
+                Automatización administrativa + desarrollo de apps móviles. Desde el concepto hasta el código.
+              </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -584,6 +590,170 @@ export default function LandingPage() {
             <p className="text-sm text-zinc-400">
               En FlowStack te preparamos para estas demandas del mercado con soluciones prácticas y resultados medibles.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== CONFIÁN EN NOSOTROS ===== */}
+      <section id="trusted" className="py-24 bg-zinc-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-base font-semibold text-orange tracking-wide uppercase">Confían en nosotros</h2>
+            <p className="mt-3 text-3xl sm:text-4xl font-bold text-black tracking-tight">
+              Empresas que ya automatizan con FlowStack
+            </p>
+          <p className="mt-4 text-lg text-zinc-500">
+                Desde agencias digitales hasta apps móviles y e-commerce — FlowStack potencia su operación.
+              </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {/* Nebula */}
+            <div className="group relative rounded-2xl border border-zinc-200 bg-white p-8 hover:border-orange/30 hover:shadow-xl hover:shadow-orange/5 transition-all duration-300">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-purple text-white shadow-lg mb-4">
+                <span className="text-xl font-bold">N</span>
+              </div>
+              <h3 className="text-xl font-bold text-black mb-2">Nebula</h3>
+              <p className="text-sm text-zinc-500 mb-4">Agencia de Desarrollo Web</p>
+              <ul className="space-y-2 text-sm text-zinc-600">
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />CRM integrado con WhatsApp + n8n</li>
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />Cotizaciones automáticas</li>
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />Seguimiento de proyectos en tiempo real</li>
+              </ul>
+            </div>
+
+            {/* Mantus */}
+            <div className="group relative rounded-2xl border border-zinc-200 bg-white p-8 hover:border-orange/30 hover:shadow-xl hover:shadow-orange/5 transition-all duration-300">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-orange text-white shadow-lg mb-4">
+                <span className="text-xl font-bold">M</span>
+              </div>
+              <h3 className="text-xl font-bold text-black mb-2">Mantus</h3>
+              <p className="text-sm text-zinc-500 mb-4">Mantenimiento Técnico Integral</p>
+              <ul className="space-y-2 text-sm text-zinc-600">
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />Órdenes de trabajo automatizadas</li>
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />Despacho de técnicos vía WhatsApp</li>
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />Inventario de repuestos en tiempo real</li>
+              </ul>
+            </div>
+
+            {/* FullSports */}
+            <div className="group relative rounded-2xl border border-zinc-200 bg-white p-8 hover:border-orange/30 hover:shadow-xl hover:shadow-orange/5 transition-all duration-300">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-red-600 text-white shadow-lg mb-4">
+                <span className="text-xl font-bold">F</span>
+              </div>
+              <h3 className="text-xl font-bold text-black mb-2">FullSports</h3>
+              <p className="text-sm text-zinc-500 mb-4">Tienda Deportiva Online</p>
+              <ul className="space-y-2 text-sm text-zinc-600">
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />Gestión de inventario automatizada</li>
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />Procesamiento inteligente de pedidos</li>
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />Sincronización multicanal de productos</li>
+              </ul>
+            </div>
+
+            {/* MobileApp (case study) */}
+            <div className="group relative rounded-2xl border border-zinc-200 bg-white p-8 hover:border-orange/30 hover:shadow-xl hover:shadow-orange/5 transition-all duration-300">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg mb-4">
+                <Smartphone className="h-7 w-7" />
+              </div>
+              <h3 className="text-xl font-bold text-black mb-2">App Móvil Demo</h3>
+              <p className="text-sm text-zinc-500 mb-4">App móvil administrativa</p>
+              <ul className="space-y-2 text-sm text-zinc-600">
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />Aprobaciones desde el celular</li>
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />Dashboard móvil en tiempo real</li>
+                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />Notificaciones push + offline</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-sm text-zinc-400 max-w-2xl mx-auto">
+              Empresas colombianas de diversos sectores ya confían en FlowStack para automatizar procesos y desarrollar apps.
+              ¿La próxima puede ser la tuya?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== DIFERENCIACIÓN vs ZAPIER/n8n ===== */}
+      <section id="diferenciacion" className="py-24 bg-zinc-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-base font-semibold text-orange tracking-wide uppercase">Diferenciación</h2>
+            <p className="mt-3 text-3xl sm:text-4xl font-bold text-black tracking-tight">
+              Por qué FlowStack es diferente
+            </p>
+            <p className="mt-4 text-lg text-zinc-500">
+              No somos una herramienta más de automatización. Estamos construidos para la empresa real.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Característica 1 */}
+            <div className="group relative rounded-2xl border border-zinc-200 bg-white p-8 hover:border-orange/30 hover:shadow-xl hover:shadow-orange/5 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange/10 text-orange">
+                  <GitBranch className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-bold text-black">Aprobaciones multi-paso con auditoría</h3>
+              </div>
+              <p className="text-sm text-zinc-600 leading-relaxed">
+                Flujos de aprobación con trazabilidad completa: cada acción queda registrada con quién, cuándo y por qué. 
+                Ni <strong className="text-black">Zapier</strong> ni <strong className="text-black">n8n</strong> ofrecen trazabilidad 
+                nativa ni control de versiones sobre aprobaciones. Nosotros sí.
+              </p>
+            </div>
+
+            {/* Característica 2 */}
+            <div className="group relative rounded-2xl border border-zinc-200 bg-white p-8 hover:border-orange/30 hover:shadow-xl hover:shadow-orange/5 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange/10 text-orange">
+                  <BarChart3 className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-bold text-black">Precios claros desde $0</h3>
+              </div>
+              <p className="text-sm text-zinc-600 leading-relaxed">
+                <strong className="text-black">Zapier</strong> cobra desde $20/mes por 750 tareas.{" "}
+                <strong className="text-black">n8n cloud</strong> desde $20/mes. 
+                FlowStack arranca en <strong className="text-black">$0</strong> con 10 solicitudes/mes y 
+                un plan Team desde $15/mes. Sin sorpresas ni escalas forzadas.
+              </p>
+            </div>
+
+            {/* Característica 3 */}
+            <div className="group relative rounded-2xl border border-zinc-200 bg-white p-8 hover:border-orange/30 hover:shadow-xl hover:shadow-orange/5 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange/10 text-orange">
+                  <Globe className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-bold text-black">Soporte en español, equipo local</h3>
+              </div>
+              <p className="text-sm text-zinc-600 leading-relaxed">
+                Mientras otras plataformas tienen soporte en inglés con chatbots, nosotros tenemos 
+                un <strong className="text-black">equipo en Bogotá</strong> que habla tu idioma y 
+                entiende tu negocio. Onboarding personalizado sin importar el plan.
+              </p>
+            </div>
+
+            {/* Característica 4 */}
+            <div className="group relative rounded-2xl border border-zinc-200 bg-white p-8 hover:border-orange/30 hover:shadow-xl hover:shadow-orange/5 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange/10 text-orange">
+                  <Zap className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-bold text-black">Todo en un solo stack integrado</h3>
+              </div>
+              <p className="text-sm text-zinc-600 leading-relaxed">
+                Zapier conecta apps, n8n orquesta APIs, Power BI visualiza. Nosotros hacemos 
+                <strong className="text-black"> todo en uno</strong>: procesos + dashboard + IA + 
+                trazabilidad. Una plataforma, un login, un proveedor. Menos fricción, más resultados.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <a href="#pricing" className="inline-flex items-center gap-2 rounded-lg bg-orange px-6 py-3 text-sm font-semibold text-white hover:bg-orange-light transition-colors shadow-lg shadow-orange/25">
+              Ver planes <ChevronRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
@@ -701,7 +871,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {/* Starter */}
             <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 hover:border-orange/30 hover:-translate-y-1 transition-all duration-300">
               <p className="text-sm font-semibold text-zinc-400 uppercase tracking-wide">Starter</p>
@@ -720,6 +890,27 @@ export default function LandingPage() {
               </ul>
               <a href="/login" className="mt-8 block w-full rounded-lg border border-zinc-700 py-3 text-sm font-semibold text-center text-zinc-300 hover:bg-white/5 hover:text-white transition-colors">
                 Comenzar gratis
+              </a>
+            </div>
+
+            {/* Team - New */}
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 hover:border-orange/30 hover:-translate-y-1 transition-all duration-300">
+              <p className="text-sm font-semibold text-zinc-400 uppercase tracking-wide">Team</p>
+              <p className="mt-4">
+                <span className="text-4xl font-bold text-white">$15</span>
+                <span className="text-zinc-500 text-sm ml-1">/mes</span>
+              </p>
+              <p className="mt-2 text-sm text-zinc-500">Para micro-PyMEs</p>
+              <ul className="mt-8 space-y-3">
+                {["Hasta 10 procesos", "100 solicitudes/mes", "Hasta 5 usuarios", "Dashboard avanzado", "Flujos multi-paso", "Soporte prioritario"].map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-sm text-zinc-400">
+                    <CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a href="/login" className="mt-8 block w-full rounded-lg border border-zinc-700 py-3 text-sm font-semibold text-center text-zinc-300 hover:bg-white/5 hover:text-white transition-colors">
+                Comenzar prueba
               </a>
             </div>
 
@@ -755,7 +946,7 @@ export default function LandingPage() {
               </p>
               <p className="mt-2 text-sm text-zinc-500">Para grandes organizaciones</p>
               <ul className="mt-8 space-y-3">
-                {["Todo lo de Professional", "Solicitudes ilimitadas", "Usuarios ilimitados", "API dedicada + Webhooks", "SLA garantizado 99.9%", "Soporte 24/7 dedicado", "Onboarding personalizado"].map((f) => (
+                {["Todo lo de Professional", "Solicitudes ilimitadas", "Usuarios ilimitados", "API dedicada + Webhooks", "SLA garantizado 99.9%", "Soporte 24/7 dedicado", "Desarrollo apps móviles (bajo proyecto)", "Onboarding personalizado"].map((f) => (
                   <li key={f} className="flex items-start gap-3 text-sm text-zinc-400">
                     <CheckCircle className="h-4 w-4 text-orange mt-0.5 shrink-0" />
                     {f}
@@ -781,7 +972,7 @@ export default function LandingPage() {
               </h2>
               <p className="mt-4 text-lg text-white/80 max-w-xl mx-auto">
                 Agenda una llamada con nuestro equipo y descubre cómo podemos ayudarte 
-                a automatizar tus procesos en tiempo récord.
+                a automatizar procesos y desarrollar apps móviles en tiempo récord.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#hero" className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3.5 text-base font-semibold text-orange hover:bg-zinc-100 transition-colors shadow-xl">
@@ -811,10 +1002,18 @@ export default function LandingPage() {
               <a href="#testimonials" className="hover:text-white transition-colors">Casos de éxito</a>
               <a href="/demo" className="hover:text-white transition-colors">Demo</a>
               <a href="/login" className="hover:text-white transition-colors">Iniciar sesión</a>
+              <a href="https://capacitacion-fredy.vercel.app" className="hover:text-white transition-colors">Capacitaciones</a>
               <a href="#" className="hover:text-white transition-colors">Política de privacidad</a>
             </div>
             <p className="text-xs text-zinc-600">
               &copy; {new Date().getFullYear()} FlowStack. Todos los derechos reservados.
+            </p>
+            <p className="text-xs text-zinc-600 mt-1">
+              Desarrollado por{" "}
+              <a href="https://nebula.agencia" className="text-purple hover:text-purple-light transition-colors">
+                Nebula
+              </a>{" "}
+              — Marketing digital y diseño web
             </p>
           </div>
         </div>
