@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Loader2, Zap } from "lucide-react";
 
 export default function LoginPage() {
@@ -37,8 +38,12 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-zinc-900 via-black to-zinc-900">
       <div className="w-full max-w-md space-y-8 rounded-2xl bg-white/10 p-8 backdrop-blur-lg border border-white/20 shadow-2xl">
         <div className="text-center">
-          <img src="/images/flowstack-logo.svg" alt="FlowStack" className="mx-auto h-14" />
-          <h1 className="mt-4 text-3xl font-bold text-white">FlowStack</h1>
+          <Link href="/">
+            <img src="/images/flowstack-logo.svg" alt="FlowStack" className="mx-auto h-14 hover:opacity-80 transition-opacity" />
+          </Link>
+          <Link href="/">
+            <h1 className="mt-4 text-3xl font-bold text-white hover:text-orange transition-colors">FlowStack</h1>
+          </Link>
           <p className="mt-2 text-sm text-orange/60">
             Automatización de Procesos Administrativos
           </p>
