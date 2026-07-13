@@ -167,10 +167,10 @@ export default function DemoPage() {
       {/* Top bar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5 group">
             <img src="/images/flowstack-logo.svg" alt="FlowStack" className="h-7" />
-            <span className="text-xs text-zinc-500 ml-2">Demo interactiva</span>
-          </div>
+            <span className="text-xs text-zinc-500 ml-2 group-hover:text-zinc-300 transition-colors">Demo interactiva</span>
+          </Link>
           <div className="flex items-center gap-3">
             <span className="text-xs text-zinc-500">
               Paso {currentStep + 1}/{totalSteps}
