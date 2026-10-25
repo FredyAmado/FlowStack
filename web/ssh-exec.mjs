@@ -1,9 +1,14 @@
 import { Client } from "ssh2";
 import { exec } from "child_process";
 
-const host = "96.44.175.39";
-const username = "root";
-const password = "***REMOVED***";
+const host = process.env.VPS_HOST;
+const username = process.env.VPS_USER || "root";
+const password = process.env.VPS_PASSWORD;
+
+if (!host || !password) {
+  console.error("Definir VPS_HOST y VPS_PASSWORD en el entorno (ver .env.example).");
+  process.exit(1);
+}
 
 async function run(cmd) {
   return new Promise((resolve, reject) => {

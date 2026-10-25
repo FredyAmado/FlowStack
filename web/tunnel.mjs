@@ -1,7 +1,13 @@
 import { Client } from "ssh2";
 import net from "net";
 
-const host = "96.44.175.39";
+const host = process.env.VPS_HOST;
+const password = process.env.VPS_PASSWORD;
+
+if (!host || !password) {
+  console.error("Definir VPS_HOST y VPS_PASSWORD en el entorno (ver .env.example).");
+  process.exit(1);
+}
 const localPort = 19001;
 const remoteHost = "127.0.0.1";
 const remotePort = 19001;
@@ -34,7 +40,7 @@ const server = net.createServer((socket) => {
 client.connect({
   host,
   username: "root",
-  password: "***REMOVED***",
+  password,
   readyTimeout: 10000,
 });
 process.on("SIGINT", () => { client.end(); server.close(); process.exit(0); });
